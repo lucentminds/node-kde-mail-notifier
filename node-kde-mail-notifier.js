@@ -21,6 +21,8 @@ var TOKEN_PATH = TOKEN_DIR + 'gmail-nodejs-quickstart.json';
 var PATH_NOTIFIED = path.resolve( DIR_APP, './notified.json' );
 var PATH_CLIENT_SECRET = path.resolve( DIR_APP, './client_secret.json' );
 var PATH_LOG = path.resolve( DIR_APP, './log.txt' );
+var PATH_SCRIPT = path.resolve( DIR_APP, './notify.sh' );
+
 
 fs.writeFileSync( PATH_LOG, new Date().toLocaleString() );
 
@@ -160,7 +162,7 @@ function main() {
 		console.log( aMessages );
 
 		for( i = 0, l = aMessages.length; i < l; i++ ) {
-			addToDialog( aMessages[ i ].subject );
+			notify( aMessages[ i ].subject );
 		}// /for()
 
 		return gmail.addMessages( aMessages );
@@ -311,7 +313,7 @@ var Notified = function(){
 		
 		set: function( aNotified ){
     		var deferred = Q.defer();
-			var cJson = JSON.stringify( aNotified );
+			var cJson = JSON.stringify( aNotified ).concat( '\n' );
 
 			fs.writeFile( PATH_NOTIFIED, cJson, 'utf8', function( err ){
 				if( err ) {
@@ -372,14 +374,40 @@ var parseJson = function( cJson, defaultValue ){
 };// /parseJson()
 
 
-var addToDialog = function( cSubject ) {
-	var cmd;
-	//86400 seconds = 24hrs?
+var notify = function( cSubject ) {
+	//var cmd;
+	//86400 seconds = 24hrs
+	//86400000 ms = 24hrs
 
-	cSubject = cSubject.substr( 0, 50 );
-	cmd = ''.concat( 'kdialog --title "New E-mails" --passivepopup "',cSubject,'..." 86400' );
-	child_process.exec( cmd );
+	notify.messages.push( cSubject.substr( 0, 40 ).concat( '...' ) );
+
+	clearTimeout( notify.timeout );
+
+	notify.timeout = setTimeout( notify.send, 10 );
+
+	
+
+	// //cmd = ''.concat( 'export DISPLAY=:0; export XAUTHORITY=~/.Xauthority; notify-send ',cSubject,' -t 86400 | at now &' );
+	// cmd = ''.concat( ''.concat( 'DISPLAY=:0.0 XAUTHORITY=~/.Xauthority notify-send "',cSubject,'\na\na" -t 86400' ) );
+
+	// //child_process.exec( '' );
+	// child_process.exec( cmd );
 };// /addToDialog()
+
+notify.timeout = 0;
+
+notify.messages = [];
+
+notify.send = function(){
+	var cMessage = notify.messages.join( '\n' ); //.replace( /"/g, '\"' );
+
+	// Does not work in a non-x environment like crontab.
+	// http://www.commandlinefu.com/commands/view/6167/i-finally-found-out-how-to-use-notify-send-with-at-or-cron
+	// cmd = ''.concat( 'kdialog --title "New E-mails" --passivepopup "',cSubject,'..." 86400' );
+
+	// DISPLAY=:0.0 XAUTHORITY=~/.Xauthority notify-send "This is my test." -t 86400000
+	child_process.execFile( PATH_SCRIPT, [cMessage] );
+};// /send()
 
 var prompt = function( cPromptMsg ){
     var deferred = Q.defer();
@@ -397,5 +425,6 @@ var prompt = function( cPromptMsg ){
 
     return deferred.promise;
 };// /prompt()
+
 
 main();
