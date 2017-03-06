@@ -1,5 +1,8 @@
 
-/* jshint node:true */
+
+/** List jshint ignore directives here. **/
+/* jslint node: true */
+
 // https://developers.google.com/gmail/api/quickstart/nodejs
 var child_process = require( 'child_process' );
 var fs = require( 'fs' );
@@ -15,9 +18,9 @@ var DIR_APP = __dirname;
 // If modifying these scopes, delete your previously saved credentials
 // at ~/.credentials/gmail-nodejs-quickstart.json
 var SCOPES = ['https://www.googleapis.com/auth/gmail.readonly'];
-var TOKEN_DIR = (process.env.HOME || process.env.HOMEPATH ||
-	process.env.USERPROFILE) + '/.credentials/';
-var TOKEN_PATH = TOKEN_DIR + 'gmail-nodejs-quickstart.json';
+var APP_USER_DIR = (process.env.HOME || process.env.HOMEPATH ||
+	process.env.USERPROFILE) + '/.nkmn-credentials/';
+var TOKEN_PATH = APP_USER_DIR + 'nkmn.json';
 var PATH_NOTIFIED = path.resolve( DIR_APP, './notified.json' );
 var PATH_CLIENT_SECRET = path.resolve( DIR_APP, './client_secret.json' );
 var PATH_LOG = path.resolve( DIR_APP, './log.txt' );
@@ -112,7 +115,7 @@ var gapi = (function(){
 			// Store token to disk be used in later program executions.
 
 			try {
-				fs.mkdirSync( TOKEN_DIR );
+				fs.mkdirSync( APP_USER_DIR );
 
 			}
 			catch ( err ) {
