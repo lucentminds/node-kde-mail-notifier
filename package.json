@@ -2,7 +2,7 @@
   "name": "node-kde-mail-notifier",
   "version": "1.0.0",
   "description": "NodeJS app that shows a mail notification dialog box in KDE plasma.",
-  "main": "node-kde-mail-notifier.js",
+  "main": "main.js",
   "scripts": {
     "test": "bork"
   },

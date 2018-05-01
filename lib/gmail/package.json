@@ -1,0 +1,25 @@
+{
+	"name": "gmail",
+	"date": "05-01-2018",
+	"description": "The best app ever..",
+	"main": "gmail.js",
+	"author": {
+		"name": "Scott Johnson"
+	},
+	"license": "UNLICENSED",
+	"version": "0.0.1",
+	"engines" : {
+		"node" : ">=4.0.0"
+	},
+	"repository":{
+		"type": "git",
+		"url": "https://github.com/life-corp/gmail.git"
+	},
+	"lifecorpDependencies": {
+	   "lifecorp-extend": ">=0.0.1",
+	   "lifecorp-application": ">=0.0.2"
+	},
+	"dependencies": {
+		"q": ">=1.4.1"
+	}
+}
