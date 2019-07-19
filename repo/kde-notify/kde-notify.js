@@ -13,8 +13,6 @@
 
 var child_process = require( 'child_process' );
 var path = require( 'path' );
-//var Q = require( 'q' );
-//var deferred = Q.defer();
 var PATH_SCRIPT = path.resolve( __dirname, './notify.sh' );
 var notify = module.exports = function( cSubject ) {
    //var cmd;
