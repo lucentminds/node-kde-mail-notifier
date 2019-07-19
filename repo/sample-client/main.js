@@ -71,7 +71,7 @@ class SampleClient {
 
             return prompt( 'Enter the code from that page here: ' )
             .then(function( c_code ){
-               console.log( c_code );
+               // console.log( c_code );
                return self.oAuth2Client.getToken( c_code );
             })
             .then(
