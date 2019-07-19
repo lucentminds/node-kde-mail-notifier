@@ -1,26 +1,20 @@
 {
   "name": "node-kde-mail-notifier",
   "version": "1.0.0",
-  "description": "NodeJS app that shows a mail notification dialog box in KDE plasma.",
-  "main": "main.js",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "test": "bork"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/lucentminds/node-kde-mail-notifier.git"
   },
+  "keywords": [],
   "author": "",
-  "license": "MIT",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/lucentminds/node-kde-mail-notifier/issues"
   },
-  "homepage": "https://github.com/lucentminds/node-kde-mail-notifier#readme",
-  "dependencies": {
-    "fs-extra": "^2.0.0",
-    "google-auth-library": "^0.10.0",
-    "googleapis": "^17.1.0",
-    "imapnotify": "^0.1.0",
-    "q": "^1.4.1"
-  }
+  "homepage": "https://github.com/lucentminds/node-kde-mail-notifier#readme"
 }
