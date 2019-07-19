@@ -14,6 +14,7 @@ const notify = require( 'kde-notify' );
 const Gmail = require( 'gmail' );
 const PATH_CREDENTIALS = path.resolve( './.credentials.json' );
 const PATH_LAST_DATE = path.resolve( './last_date.txt' );
+console.log( 'process.env.REDIRECT_URIS', process.env.REDIRECT_URIS );
 
 const gmailer = Gmail({
    path_credentials: PATH_CREDENTIALS,
