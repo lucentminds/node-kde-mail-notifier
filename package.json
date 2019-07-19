@@ -2,7 +2,7 @@
   "name": "node-kde-mail-notifier",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/lucentminds/node-kde-mail-notifier/issues"
   },
-  "homepage": "https://github.com/lucentminds/node-kde-mail-notifier#readme"
+  "homepage": "https://github.com/lucentminds/node-kde-mail-notifier#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "googleapis": "^41.0.1",
+    "prompt": "file:repo/prompt",
+    "q": "^1.5.1",
+    "sample-client": "file:repo/sample-client"
+  }
 }

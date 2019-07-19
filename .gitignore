@@ -3,3 +3,4 @@ node_modules
 log.txt
 client_secret.json
 notified.json
+.env
