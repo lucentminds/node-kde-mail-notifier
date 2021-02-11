@@ -9,7 +9,9 @@ const SampleClient = require('sample-client');
 const {google} = require('googleapis');
 const resolve = require( 'promise-resolve-path' );
 const read = require( 'promise-file-read' );
-const write = require( 'promise-file-write' );
+const fsp = require( 'fs' ).promises;
+// const write = require( 'promise-file-write' );
+const write = fsp.writeFile;
 
 const Gmail = module.exports = function( o_options ){
    const o_settings = Object.assign({
