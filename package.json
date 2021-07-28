@@ -18,14 +18,11 @@
   },
   "homepage": "https://github.com/lucentminds/node-kde-mail-notifier#readme",
   "dependencies": {
+    "chalk": "^4.1.1",
     "dotenv": "^8.0.0",
-    "gmail": "file:repo/gmail",
     "googleapis": "^41.0.1",
-    "kde-notify": "file:repo/kde-notify",
     "promise-file-read": "git+https://github.com/lucentminds/promise-file-read.git",
     "promise-resolve-path": "git+https://github.com/lucentminds/promise-resolve-path.git",
-    "prompt": "file:repo/prompt",
-    "q": "^1.5.1",
     "sample-client": "file:repo/sample-client"
   }
 }

@@ -1,0 +1,17 @@
+{
+   "undef": true,
+   "unused": true,
+   "quotmark" : "single",
+   "trailing" : true,
+   "asi": false,
+
+   // Relaxing options
+   "esversion": 8,
+
+   // environments
+   "node": true,
+
+   "globals": {
+      "Server": false
+   }
+}
