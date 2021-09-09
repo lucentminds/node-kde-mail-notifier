@@ -5,4 +5,6 @@ client_secret.json
 notified.json
 .env
 .credentials.json
+credentials.json
+last_date.txt
 *.log
