@@ -20,7 +20,7 @@
   "dependencies": {
     "chalk": "^4.1.1",
     "dotenv": "^8.0.0",
-    "googleapis": "^41.0.1",
+    "googleapis": "^92.0.0",
     "promise-file-read": "git+https://github.com/lucentminds/promise-file-read.git",
     "promise-resolve-path": "git+https://github.com/lucentminds/promise-resolve-path.git",
     "sample-client": "file:repo/sample-client"
